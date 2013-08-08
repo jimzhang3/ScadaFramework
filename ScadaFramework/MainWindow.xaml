@@ -8,10 +8,14 @@
 
 	<Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
+            <!--Auto表示高度以所填充的控件高度为准，*表示剩下的所有行高。-->
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="25" Name="title" />
+            <RowDefinition Height="15" Name="subTitle"/>
+            <RowDefinition Height="*" Name="content"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-
+        
         <ribbon:Ribbon x:Name="Ribbon">
             <ribbon:Ribbon.ApplicationMenu>
                 <ribbon:RibbonApplicationMenu SmallImageSource="Images\SmallIcon.png">
@@ -79,9 +83,28 @@
                     <ribbon:RibbonButton x:Name="Button12"
                                          SmallImageSource="Images\SmallIcon.png"
                                          Label="功能" />
-
+                    <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" Width="100" Height="60" x:Name="lb">
+                        <ListBox.ItemContainerStyle>
+                            <Style  TargetType="ListBoxItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListBoxItem">
+                                            <RadioButton IsChecked="{Binding Path=IsSelected,RelativeSource={RelativeSource TemplatedParent}}"
+                                             Content="{TemplateBinding Property=Content}"/>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBoxItem  IsSelected="True">
+                            <TextBlock>TcpServer</TextBlock>
+                        </ListBoxItem>
+                        <TextBlock>TcpClient</TextBlock>
+                        <TextBlock>SerialPort</TextBlock>
+                        <TextBlock>UDP</TextBlock>
+                    </ListBox>
                 </ribbon:RibbonGroup>
-
+               
             </ribbon:RibbonTab>
             <ribbon:RibbonTab x:Name="ApplicationTab" 
                               Header="Application">
@@ -102,10 +125,24 @@
                                          Label="View" />
 
                 </ribbon:RibbonGroup>
-
             </ribbon:RibbonTab>
         </ribbon:Ribbon>
-        <ribbon:RibbonComboBox Height="23" HorizontalAlignment="Left" Margin="191,55,0,0" Name="ribbonComboBox1" VerticalAlignment="Top" Width="100" />
-
+        <!--状态栏-->
+        <StatusBar Grid.Row="4">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <TextBlock>Left Side</TextBlock>
+            <StatusBarItem Grid.Column="1">
+                <TextBlock>Right Side</TextBlock>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </ribbon:RibbonWindow>
