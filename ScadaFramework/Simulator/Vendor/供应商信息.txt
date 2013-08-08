@@ -1,0 +1,13 @@
+﻿品牌；
+产品系列；
+产品类型；
+（细分类型）
+序列号；
+厂家；
+生产日期；
+电话；
+
+Name:
+Brand:
+Manufacture:
+Sepesification:

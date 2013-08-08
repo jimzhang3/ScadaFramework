@@ -1,0 +1,111 @@
+﻿<ribbon:RibbonWindow x:Class="ScadaFramework.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+        Title="MainWindow"
+		x:Name="RibbonWindow"
+		Width="640" Height="480">
+
+	<Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ribbon:Ribbon x:Name="Ribbon">
+            <ribbon:Ribbon.ApplicationMenu>
+                <ribbon:RibbonApplicationMenu SmallImageSource="Images\SmallIcon.png">
+                    <ribbon:RibbonApplicationMenuItem Header="Hello _Ribbon"
+                                                      x:Name="MenuItem1"
+                                                      ImageSource="Images\LargeIcon.png"/>
+                </ribbon:RibbonApplicationMenu>
+            </ribbon:Ribbon.ApplicationMenu>
+            <ribbon:RibbonTab x:Name="ScadaTab" 
+                              Header="SCADA">
+                <ribbon:RibbonGroup x:Name="Group1" 
+                                    Header="Group1">
+                    <ribbon:RibbonButton x:Name="btnLoop"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="Loop" />
+
+                    <ribbon:RibbonButton x:Name="btnControl"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Control" />
+                    <ribbon:RibbonButton x:Name="btnSupervisory"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Supervisory" />
+                    <ribbon:RibbonButton x:Name="btnDataAcquisition"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="DataAcquisition" />
+                    
+                </ribbon:RibbonGroup>
+                
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="ProtocolTab" 
+                              Header="Protocol">
+                <ribbon:RibbonGroup x:Name="Group2" 
+                                    Header="Group2">
+                    <ribbon:RibbonButton x:Name="Button5"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="Button5" />
+
+                    <ribbon:RibbonButton x:Name="btnCheck"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Check" />
+                    <ribbon:RibbonButton x:Name="Button7"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button7" />
+                    <ribbon:RibbonButton x:Name="Button8"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button8" />
+
+                </ribbon:RibbonGroup>
+
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="SimulatorTab" 
+                              Header="Simulator">
+                <ribbon:RibbonGroup x:Name="Group3" 
+                                    Header="Group3">
+                    <ribbon:RibbonButton x:Name="Button9"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="Button9" />
+
+                    <ribbon:RibbonButton x:Name="Button10"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="基本信息(增删改)" />
+                    <ribbon:RibbonButton x:Name="Button11"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="寄存器(定义)" />
+                    <ribbon:RibbonButton x:Name="Button12"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="功能" />
+
+                </ribbon:RibbonGroup>
+
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="ApplicationTab" 
+                              Header="Application">
+                <ribbon:RibbonGroup x:Name="Group4" 
+                                    Header="Group4">
+                    <ribbon:RibbonButton x:Name="btnRun"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="Run" />
+
+                    <ribbon:RibbonButton x:Name="btnLine"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Line" />
+                    <ribbon:RibbonButton x:Name="btnReport"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Report" />
+                    <ribbon:RibbonButton x:Name="btnView"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="View" />
+
+                </ribbon:RibbonGroup>
+
+            </ribbon:RibbonTab>
+        </ribbon:Ribbon>
+        <ribbon:RibbonComboBox Height="23" HorizontalAlignment="Left" Margin="191,55,0,0" Name="ribbonComboBox1" VerticalAlignment="Top" Width="100" />
+
+    </Grid>
+</ribbon:RibbonWindow>
